@@ -74,7 +74,7 @@
             <artifactId>commons-dbcp2</artifactId>
             <version>2.0.1</version>
         </dependency>
-        <!-- 以上使用的第三方开源项目是为了让框架的以来尽可能减少 -->
+        <!-- 以上使用的第三方开源项目是为了让框架的依赖尽可能减少 -->
     </dependencies>
 
 </project>
