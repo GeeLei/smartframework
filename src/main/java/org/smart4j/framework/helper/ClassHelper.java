@@ -7,6 +7,7 @@ import org.smart4j.framework.annotation.Service;
 import org.smart4j.framework.util.ClassUtil;
 import org.smart4j.framework.util.JsonUtil;
 
+import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -77,5 +78,35 @@ public class ClassHelper {
         beanClassSet.addAll(getServiceClassSet());
         beanClassSet.addAll(getControllerClassSet());
         return beanClassSet;
+    }
+
+    /**
+     * 获取应用包下带有某注解的所有类
+     * @param annotationClass
+     * @return
+     */
+    public static Set<Class<?>> getClassSetByAnnotation(Class<? extends Annotation> annotationClass){
+        Set<Class<?>> classSet=new HashSet<Class<?>>();
+        for(Class<?> clazz : CLASS_SET){
+            if (clazz.isAnnotationPresent(annotationClass)){
+                classSet.add(clazz);
+            }
+        }
+        return classSet;
+    }
+
+    /**
+     * 获取应用包下某父类（或接口）的所有子类
+     * @param superClass
+     * @return
+     */
+    public static Set<Class<?>> getClassBySuperClass(Class<?> superClass){
+        Set<Class<?>> classSet=new HashSet<Class<?>>();
+        for(Class<?> clazz : CLASS_SET){
+            if (superClass.isAssignableFrom(clazz)&&!superClass.equals(clazz)){
+                classSet.add(clazz);
+            }
+        }
+        return classSet;
     }
 }

@@ -51,4 +51,11 @@ public class BeanHelper {
     public static Map<Class<?>,Object> getBeanMap(){
         return BEAN_MAP;
     }
+
+    /**
+     * 添加bean实例
+     */
+    public static void setBean(Class<?> clazz,Object object) {
+        BEAN_MAP.put(clazz,object);
+    }
 }

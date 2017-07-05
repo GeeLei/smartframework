@@ -7,10 +7,11 @@ import org.smart4j.framework.util.ClassUtil;
  * Created by GL on 2017/6/27.
  */
 public class LoaderHelper {
-    //相关Helper类初始化
+    //相关Helper类初始化,Aop初始化要在依赖注入之前
     public static void  init(){
         Class<?>[] classList={ClassHelper.class,
                 BeanHelper.class,
+                AopHelper.class,
                 IocHelper.class,
                 ControllerHelper.class
         };
